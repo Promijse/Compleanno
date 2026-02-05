@@ -1,180 +1,103 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
-html,
-body {
+@import url('https://fonts.googleapis.com/css?family=Lato:300italic');
+
+/* RESET */
+html, body {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
-#confetti{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:3;
-}
-#confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
+
+/* BODY */
+body {
+  background: #ffc0cb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-@keyframes fall {
-  to { transform: translateY(110vh); }
-}
-
-
-
-body {
-  background: #ffc0cb;
-}
-
+/* CAKE */
 #cake {
-  display: block;
   position: relative;
-  margin: -10em auto 0 auto;
-}
-
-.candle {
+  width: 200px;
+  height: 120px;
   background: #ffffff;
   border-radius: 10px;
+  box-shadow: 0 10px 0 #f5a9b8;
+}
+
+/* NUMERO 19 */
+.number {
   position: absolute;
-  top: 228px;
+  top: -70px;
   left: 50%;
-  margin-left: -5px;
-  margin-top: -8.33333333px;
-  width: 10px;
-  height: 70px;
-  transform: translateY(-300px);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-animation: in 500ms 6s ease-out forwards;
-          animation: in 500ms 6s ease-out forwards;
+  transform: translateX(-50%);
+  font-family: 'Lato', sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: red;
+  display: flex;
+  gap: 8px;
 }
 
-.candle:after,
-.candle:before {
-  background: rgba(255, 0, 0, 0.4);
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2.22222222px;
+/* CIFRA */
+.digit {
+  position: relative;
 }
 
-.candle:after {
-  top: 15%;
-  left: 0;
-}
-
-.candle:before {
-  top: 45%;
-  left: 0;
-}
-
+/* FIAMMA */
 .fire {
-  border-radius: 100%;
   position: absolute;
-  top: -20px;
+  top: -28px;
   left: 50%;
-  margin-left: -2.6px;
-  width: 6.66666667px;
-  height: 18px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(254, 248, 97, 0.85);
+  box-shadow: 0 0 25px rgba(255, 200, 100, 0.9);
+  animation: fire 1s infinite;
 }
 
-.fire:nth-child(1) {
-  -webkit-animation: fire 2s 6.5s infinite;
-          animation: fire 2s 6.5s infinite;
-}
-
-.fire:nth-child(2) {
-  -webkit-animation: fire 1.5s 6.5s infinite;
-          animation: fire 1.5s 6.5s infinite;
-}
-
-.fire:nth-child(3) {
-  -webkit-animation: fire 1s 6.5s infinite;
-          animation: fire 1s 6.5s infinite;
-}
-
-.fire:nth-child(4) {
-  -webkit-animation: fire 0.5s 6.5s infinite;
-          animation: fire 0.5s 6.5s infinite;
-}
-
-.fire:nth-child(5) {
-  -webkit-animation: fire 0.2s 6.5s infinite;
-          animation: fire 0.2s 6.5s infinite;
-}
-
-@-webkit-keyframes fire {
-  0%, 100% {
-    background: rgba(254, 248, 97, 0.5);
-    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    background: rgba(255, 50, 0, 0.1);
-    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    transform: translateY(-20px) scale(0);
-  }
-}
+/* FIAMMA ANIMATA */
 @keyframes fire {
   0%, 100% {
-    background: rgba(254, 248, 97, 0.5);
-    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    transform: translateY(0) scale(1);
+    transform: translateX(-50%) scale(1);
+    background: rgba(254, 248, 97, 0.9);
   }
   50% {
-    background: rgba(255, 50, 0, 0.1);
-    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    transform: translateY(-20px) scale(0);
+    transform: translateX(-50%) scale(0.6);
+    background: rgba(255, 80, 0, 0.6);
   }
 }
-@-webkit-keyframes in {
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes in {
-  to {
-    transform: translateY(0);
-  }
-}
+
+/* TESTO */
 .text {
-  margin-top: 25px;           /* space below cake */
+  margin-top: 40px;
   text-align: center;
 }
 
 .text h1 {
   font-family: 'Brush Script MT', cursive;
-  font-size: 3rem;            /* 🔥 CHANGE SIZE HERE */
+  font-size: 3rem;
   color: red;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid red;
   display: inline-block;
-}
-
-.typewriter {
+  width: 0;
   animation:
-    typing 2s steps(30, end) forwards,
+    typing 2.5s steps(30, end) forwards,
     blink .7s infinite;
 }
 
-/* Typing effect */
+/* TYPEWRITER */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
 
-/* Cursor blink */
+/* CURSORE */
 @keyframes blink {
   50% { border-color: transparent; }
-}
-
-
-@keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-}
