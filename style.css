@@ -150,7 +150,7 @@ body {
 }
 
 .text h1 {
-  font-family: 'Brush Script MT', cursive;
+  font-family: 'Brush Script MT';
   font-size: 3rem;            /* 🔥 CHANGE SIZE HERE */
   color: red;
   white-space: nowrap;
@@ -238,3 +238,4 @@ body {
     height: auto;
   }
 }
+
